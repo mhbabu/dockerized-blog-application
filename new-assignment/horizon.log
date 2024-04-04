@@ -1,0 +1,24 @@
+PHP Warning:  PHP Startup: Invalid date.timezone value 'UTC+6', using 'UTC' instead in Unknown on line 0
+PHP Warning:  require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18
+PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /var/www/artisan on line 18
+PHP Warning:  PHP Startup: Invalid date.timezone value 'UTC+6', using 'UTC' instead in Unknown on line 0
+PHP Warning:  require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18
+PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /var/www/artisan on line 18
+PHP Warning:  PHP Startup: Invalid date.timezone value 'UTC+6', using 'UTC' instead in Unknown on line 0
+PHP Warning:  require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18
+PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /var/www/artisan on line 18
+PHP Warning:  PHP Startup: Invalid date.timezone value 'UTC+6', using 'UTC' instead in Unknown on line 0
+PHP Warning:  require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18
+PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /var/www/artisan on line 18

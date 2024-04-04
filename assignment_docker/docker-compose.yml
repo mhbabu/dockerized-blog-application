@@ -1,0 +1,69 @@
+version: "3.9"
+
+volumes:
+  assignment_mysql_db:
+    driver: local
+  assignment_redis_db:
+    driver: local
+
+networks:
+  assignment_development_network:
+    name: assignment_development_network
+
+services:
+  proxy-server:
+    image: jwilder/nginx-proxy
+    container_name: assignment-proxy-server
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - assignment_development_network
+
+  mysql-db:
+    image: mysql:latest
+    container_name: assignment-mysql
+    ports:
+      - "3336:3306"
+    volumes:
+      - assignment_mysql_db:/var/lib/mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root_assignment_password
+      MYSQL_DATABASE: assignment_backend
+      MYSQL_USER: assignment_user
+      MYSQL_PASSWORD: assignment_password
+    networks:
+      - assignment_development_network
+
+
+  fix-redis-volume-ownership:
+    image: 'bitnami/redis:latest'
+    user: root
+    command: chown -R 1001:1001 /bitnami
+    volumes:
+      - assignment_redis_db:/bitnami
+      - assignment_redis_db:/opt/bitnami/redis/conf/redis.conf
+    restart: always
+    networks:
+      - assignment_development_network
+
+
+  redis:
+    image: 'bitnami/redis:latest'
+    container_name: redis
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PORT=6379
+    volumes:
+      - assignment_redis_db:/bitnami
+      - assignment_redis_db:/opt/bitnami/redis/conf/redis.conf
+    restart: always
+    networks:
+      - assignment_development_network

@@ -1,0 +1,1 @@
+2023/06/18 23:24:44 [error] 45#45: *28462 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: _, request: "GET /health-check HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "127.0.0.1"
